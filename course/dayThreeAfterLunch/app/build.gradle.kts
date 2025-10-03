@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.zayed.myapp"
+    namespace = "com.zayed.myapplication"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.zayed.myapp"
+        applicationId = "com.zayed.myapplication"
         minSdk = 31
         targetSdk = 36
         versionCode = 1

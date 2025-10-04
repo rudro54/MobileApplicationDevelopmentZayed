@@ -23,7 +23,8 @@ class MainActivity : ComponentActivity() {
 
                 //RowScreen()
                 //ColumnScreen()
-                BoxScreen()
+                //BoxScreen()
+                RegistrationScreen()
 
             }
         }

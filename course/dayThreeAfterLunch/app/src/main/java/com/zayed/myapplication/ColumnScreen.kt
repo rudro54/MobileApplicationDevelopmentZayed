@@ -1,7 +1,8 @@
 package com.zayed.myapplication
 
+import androidx.compose.ui.graphics.Color
 import android.R.attr.contentDescription
-import android.R.attr.text
+import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold

@@ -1,11 +1,11 @@
 package com.zayed.myapplication
+
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
@@ -20,9 +20,9 @@ import androidx.compose.ui.unit.dp
 import com.zayed.myapplication.data.DataSource
 
 @Composable
-fun LazyColumnScreen(modifier: Modifier = Modifier) {
+fun LazyRowScreen(modifier: Modifier = Modifier) {
     Scaffold {innerPadding->
-        LazyColumn(
+        LazyRow(
             modifier = Modifier.padding(innerPadding)
         ){
             items(DataSource.loadData()){ item->
@@ -31,7 +31,7 @@ fun LazyColumnScreen(modifier: Modifier = Modifier) {
                         painter = painterResource(item.image),
                         contentDescription=stringResource(item.title),
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .width(400.dp)
                             .height(200.dp),
                         contentScale= ContentScale.Crop
 
@@ -64,19 +64,20 @@ fun LazyColumnScreen(modifier: Modifier = Modifier) {
 //                item->
 //                   Text(text=item)
 //            }
-       }
+
+        }
 
     }
 
-}
 
+}
 
 @Preview(
     showSystemUi = true
 )
 
 @Composable
-fun LazyColumnScreenPreview(modifier: Modifier = Modifier) {
-    LazyColumnScreen()
+fun LazyRowScreenPreview(modifier: Modifier = Modifier) {
+    LazyRowScreen()
 
 }

@@ -1,6 +1,7 @@
 package com.zayed.myapplication
 
-import android.R.attr.onClick
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,13 +12,15 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CounterScreen(modifier: Modifier = Modifier) {
+fun CounterScreenWithMixedLogicAndView(modifier: Modifier = Modifier) {
 
     Scaffold { innerPadding->
 
@@ -28,21 +31,23 @@ fun CounterScreen(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text="0")
+            var count: Int by rememberSaveable { mutableIntStateOf(0) } // inside composable you must use remember
+            Text(text="$count")
             Spacer(modifier=Modifier.padding(20.dp))
             Row {
                 Button(
-                    onClick ={}
-                ){
-                    Text(text="Decrement")
-
+                    onClick = {
+                        count=decrement(count)
+                    }
+                ) {
+                    Text(text = "Decrement")
                 }
-                Spacer(modifier=Modifier.padding(10.dp))
                 Button(
-                    onClick ={}
-                ){
-                    Text(text="Increment")
-
+                    onClick = {
+                        count=increment(count)
+                    }
+                ) {
+                    Text(text = "Increment")
                 }
             }
         }
@@ -54,6 +59,9 @@ fun CounterScreen(modifier: Modifier = Modifier) {
 
 }
 
+fun increment(count:Int)=count+1
+fun decrement(count:Int)=count-1
+
 
 @Preview(
     showSystemUi = true
@@ -61,8 +69,8 @@ fun CounterScreen(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun CounterScreenPreview(modifier: Modifier = Modifier) {
+fun CounterScreenWithMixedLogicAndViewPreview(modifier: Modifier = Modifier) {
 
-    CounterScreen()
+    CounterScreenWithMixedLogicAndView()
 
 }

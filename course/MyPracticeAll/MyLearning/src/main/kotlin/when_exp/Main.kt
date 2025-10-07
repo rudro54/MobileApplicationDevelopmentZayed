@@ -12,6 +12,13 @@ fun main(){
         7->println("Sunday")
         else->println("Invalid Day")
     }
+
+    when(daysofweek){
+        2->println("Monday")
+        3->println("Tuesday")
+
+
+    }
     val day = "Monday"
     when(day){
         "Monday" -> println("Today is Monday")
@@ -31,6 +38,8 @@ fun main(){
         name =="Sam"->println("Hi Sam")
         else ->println("Hi There Unknown")
     }
+
+
 
 
 }

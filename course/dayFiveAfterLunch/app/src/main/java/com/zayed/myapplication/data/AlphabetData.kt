@@ -1,7 +1,10 @@
 package com.zayed.myapplication.data
 
+
+// best practice singleton object for data
+// for now its not repository pattern which is standard practice . its tightly coupled which should not be
 object AlphabetData {
-    object AlphabetData {
+
         val alphabetData = listOf<Pair<Char, String>>(
             'A' to "Apple",
             'B' to "Ball",
@@ -30,6 +33,6 @@ object AlphabetData {
             'Y' to "Yellow",
             'Z' to "Zebra"
         )
-    }
+
 
 }
